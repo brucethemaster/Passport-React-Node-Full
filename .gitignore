@@ -6,3 +6,4 @@ test_reports
 .grunt
 .lock-wscrpt
 coverage
+*.zip
