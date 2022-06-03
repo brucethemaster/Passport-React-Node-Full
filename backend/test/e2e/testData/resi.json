@@ -1,0 +1,44 @@
+[
+	{
+		"_id": "629642c7eba5741e095f1972",
+		"createdAt": "2022-05-31T16:31:03.329Z",
+		"email": "test1@test.com",
+		"first_name": "john",
+		"last_name": "joe",
+		"role": "Admin",
+		"updatedAt": "2022-05-31T16:31:03.329Z",
+		"verified": true
+	},
+	{
+		"_id": "629642c7eba5741e095f1973",
+		"assignedEmployeeId": ["629642c7eba5741e095f1974"],
+		"createdAt": "2022-05-31T16:31:03.329Z",
+		"email": "test2@test.com",
+		"first_name": "Bruce",
+		"last_name": "Jack",
+		"role": "Supervisor",
+		"updatedAt": "2022-05-31T16:31:03.329Z",
+		"verified": true
+	},
+	{
+		"_id": "629642c7eba5741e095f1974",
+		"assignedSupervisorId": "629642c7eba5741e095f1973",
+		"createdAt": "2022-05-31T16:31:03.329Z",
+		"email": "test3@test.com",
+		"first_name": "Jenny",
+		"last_name": "joe",
+		"role": "Employee",
+		"updatedAt": "2022-05-31T16:31:03.329Z",
+		"verified": true
+	},
+	{
+		"_id": "629a3c2d3b2af87f844f7e3d",
+		"createdAt": "2022-06-03T16:51:57.694Z",
+		"email": "test21@test.com",
+		"first_name": "bruce",
+		"last_name": "joe2",
+		"role": "Employee",
+		"updatedAt": "2022-06-03T16:51:57.694Z",
+		"verified": false
+	}
+]

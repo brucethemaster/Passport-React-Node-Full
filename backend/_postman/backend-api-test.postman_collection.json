@@ -1,0 +1,361 @@
+{
+	"info": {
+		"_postman_id": "b5979895-5f7f-4cfc-8db8-187242f6b15c",
+		"name": "backend-api-test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "healthcheck",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/healthcheck",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"healthcheck"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "singup  new user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"bruce\",\n    \"last_name\": \"joe2\",\n    \"role\": \"Employee\",\n    \"password\": \"Hello123321+_\",\n    \"passwordConfirmation\": \"Hello123321+_\",\n    \"email\": \"test6@test.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/signup",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create new user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTY0MmM3ZWJhNTc0MWUwOTVmMTk3MiIsImlhdCI6MTY1NDE4NTM3MDA1MCwicm9sZSI6IkFkbWluIiwiZXhwIjoxNjU0MTg1NDU2NDUwfQ.xnLCLl4dwOF6sHMik3oDXunUhfXKMCOp6dDtnH_ubc0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"first_name\": \"bruce\",\n    \"last_name\": \"joe2\",\n    \"role\": \"Admin\",\n    \"password\": \"Hello123321+_\",\n    \"passwordConfirmation\": \"Hello123321+_\",\n    \"email\": \"test10@itest.com\",\n    \"verified\":true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/create",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login as an Admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n   \n    \"password\": \"123321\",\n  \n    \"email\": \"test1@test.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login as an Employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \n    \"password\": \"Hello123321+_\",\n  \n    \"email\": \"test12@test.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login as a Supervisor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \n    \"password\": \"123321\",\n  \n    \"email\": \"test2@test.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login with the new Singup",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \n    \"password\": \"Hello123321+_\",\n  \n    \"email\": \"test4@test.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login with new Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \n    \"password\": \"Hello123321+_\",\n  \n    \"email\": \"test5@test.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/login",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get  user profile by id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTdmOWRlMDUyZDkwNWU4ZGQzMzhjYyIsImlhdCI6MTY1NDEyNzU3Nzc0Nywicm9sZSI6IkFkbWluIiwiZXhwIjoxNjU0MTI3NjY0MTQ3fQ.5GmNap_reYqm5jJaqQYymmlIfRlT0w4tAwydVGLpc2k",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/api/profile/629642c7eba5741e095f1972",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"profile",
+						"629642c7eba5741e095f1972"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get alll user profile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/api/profiles",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"profiles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update an user by id",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTY0MmM3ZWJhNTc0MWUwOTVmMTk3MiIsImlhdCI6MTY1NDE5MjU0MTU1Niwicm9sZSI6IkFkbWluIiwiZXhwIjoxNjU0MTkyNjI3OTU2fQ.SlL1txAfu0lzbnxUtmKC7zckZ7pJtMX_a6R-xN5JHD4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n    \"first_name\": \"bruce\",\n    \"last_name\": \"joe2\",\n    \"email\": \"test6@test.com\",\n    \"role\": \"Employee\",\n     \"assignedSupervisorId\": \"629642c7eba5741e095f1973\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:3000/api/update/6299001594f0caef89b79a1f",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"update",
+						"6299001594f0caef89b79a1f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verify user by id",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTY0MmM3ZWJhNTc0MWUwOTVmMTk3MiIsImlhdCI6MTY1NDE0MTUzMjExNCwicm9sZSI6IkFkbWluIiwiZXhwIjoxNjU0MTQxNjE4NTE0fQ.CuG_ujPGCsfi-8W37fuB33GH6yTnUd35HIGUCgtAdiY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/api/delete/6297f9de052d905e8dd338cc",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"delete",
+						"6297f9de052d905e8dd338cc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user by id",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyOTY0MmM3ZWJhNTc0MWUwOTVmMTk3MiIsImlhdCI6MTY1NDE4NTM3MDA1MCwicm9sZSI6IkFkbWluIiwiZXhwIjoxNjU0MTg1NDU2NDUwfQ.xnLCLl4dwOF6sHMik3oDXunUhfXKMCOp6dDtnH_ubc0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/api/delete/6298de3e3ec9b4627eff442a",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"delete",
+						"6298de3e3ec9b4627eff442a"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

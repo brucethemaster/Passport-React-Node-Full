@@ -1,0 +1,20 @@
+{
+	"url": "http://127.0.0.1:3000",
+	"signupUser": {
+		"first_name": "bruce",
+		"last_name": "joe2",
+		"role": "Employee",
+		"password": "Hello123321+_",
+		"passwordConfirmation": "Hello123321+_",
+		"email": "test21@test.com"
+	},
+	"login": {
+		"password": "Hello123321+_",
+		"email": "test21@test.com"
+	},
+	"loginAdmin": {
+		"password": "123321",
+
+		"email": "test1@test.com"
+	}
+}

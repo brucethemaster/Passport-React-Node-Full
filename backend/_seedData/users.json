@@ -1,0 +1,40 @@
+[
+	{
+		"_id": "629642c7eba5741e095f1972",
+		"first_name": "john",
+		"last_name": "joe",
+		"email": "test1@test.com",
+		"password": "$2b$10$CYtHhnpxvDAyziyDrZACBOZy586XV.85NLILuk4gV.gtIAOp8dNCC",
+		"role": "Admin",
+		"verified": true,
+		"version": 0,
+		"createdAt": "2022-05-31T16:31:03.329+0000",
+		"updatedAt": "2022-05-31T16:31:03.329+0000"
+	},
+	{
+		"_id": "629642c7eba5741e095f1973",
+		"first_name": "Bruce",
+		"last_name": "Jack",
+		"email": "test2@test.com",
+		"password": "$2b$10$CYtHhnpxvDAyziyDrZACBOZy586XV.85NLILuk4gV.gtIAOp8dNCC",
+		"role": "Supervisor",
+		"assignedEmployeeId": ["629642c7eba5741e095f1974"],
+		"verified": true,
+		"version": 0,
+		"createdAt": "2022-05-31T16:31:03.329+0000",
+		"updatedAt": "2022-05-31T16:31:03.329+0000"
+	},
+	{
+		"_id": "629642c7eba5741e095f1974",
+		"first_name": "Jenny",
+		"last_name": "joe",
+		"email": "test3@test.com",
+		"password": "$2b$10$CYtHhnpxvDAyziyDrZACBOZy586XV.85NLILuk4gV.gtIAOp8dNCC",
+		"role": "Employee",
+		"assignedSupervisorId": "629642c7eba5741e095f1973",
+		"verified": true,
+		"version": 0,
+		"createdAt": "2022-05-31T16:31:03.329+0000",
+		"updatedAt": "2022-05-31T16:31:03.329+0000"
+	}
+]
