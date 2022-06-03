@@ -2,9 +2,7 @@ import { Request } from 'express';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import UserModel from '../models/user.model';
-//import dotenv from 'dotenv';
 
-//dotenv.config();
 
 const generateJWT = async (req: Request) => {
 	const JWT_SECRET = process.env.JWT_SECRET || 'supersecret';
