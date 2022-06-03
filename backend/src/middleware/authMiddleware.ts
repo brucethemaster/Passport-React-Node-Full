@@ -3,7 +3,6 @@ import jwt from 'jsonwebtoken';
 import bcrypt from 'bcrypt';
 import UserModel from '../models/user.model';
 
-
 const generateJWT = async (req: Request) => {
 	const JWT_SECRET = process.env.JWT_SECRET || 'supersecret';
 	if (req.headers) {
@@ -41,14 +40,14 @@ const generateJWT = async (req: Request) => {
 			id: _id,
 			iat: Date.now(),
 			role: role,
-			assignedSupervisorId: user.assignedSupervisorId,
+			assignedSupervisorId: user.assignedSupervisorId
 		};
 
 		const signedToken = jwt.sign(payload, JWT_SECRET, { expiresIn: expiresIn });
 
 		return {
 			token: 'Bearer ' + signedToken,
-			expires: expiresIn,
+			expires: expiresIn
 		};
 	}
 };

@@ -7,7 +7,7 @@ import {
 	IUserUpdateDocument,
 	IUserUpdateInput,
 	IUserCreateInput,
-	IUserCreateDocument,
+	IUserCreateDocument
 } from '../interfaces/user.interface';
 import { updateUserInput } from 'src/schema/user.schema';
 
@@ -18,7 +18,7 @@ const userSchema = new Schema(
 	{
 		first_name: {
 			type: String,
-			required: true,
+			required: true
 		},
 		last_name: { type: String, required: true },
 		email: { type: String, required: true, unique: true },
@@ -26,19 +26,19 @@ const userSchema = new Schema(
 		role: { type: String, required: true, enum: ['Employee', 'Supervisor', 'Admin'] },
 		assignedSupervisorId: {
 			type: Schema.Types.ObjectId,
-			ref: 'userSchema',
+			ref: 'userSchema'
 		},
 
 		assignedEmployeeId: {
 			type: [
 				{
 					type: Schema.Types.ObjectId,
-					ref: 'userSchema',
-				},
+					ref: 'userSchema'
+				}
 			],
-			default: undefined,
+			default: undefined
 		},
-		verified: { type: Boolean, default: false },
+		verified: { type: Boolean, default: false }
 	},
 	{ timestamps: true, versionKey: 'version' }
 );
