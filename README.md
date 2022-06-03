@@ -1,6 +1,6 @@
 # Passport-React-Node-Full
 
-##Avaialable scripts
+## Avaialable scripts
 
 In the project directory you can run:
 
