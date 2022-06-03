@@ -2,3 +2,7 @@
 .DS_Store
 .vscode
 node_modules
+test_reports
+.grunt
+.lock-wscrpt
+coverage
