@@ -1,8 +1,10 @@
 # Passport-React-Node-Full
+its a full stack application that learning progress to get a full picture of  untizing  typescript react passport-jwt, role based access control
+currently is not finsih yet, my vision is to build  an frontend, implment docker and github CICD
 
 ## Avaialable scripts
 
-In the project directory you can run:
+In the backend project directory you can run:
 
 ### npm i 
 install projects
