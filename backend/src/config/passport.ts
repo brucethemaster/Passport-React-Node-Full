@@ -21,8 +21,8 @@ export default (passport: PassportStatic) => {
 					} else {
 						return done(null, false);
 					}
-				}
+				},
 			);
-		})
+		}),
 	);
 };
