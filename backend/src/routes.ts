@@ -10,7 +10,7 @@ import {
 	deleteUserHandler,
 	verifyUserHandler,
 } from './controllers/user.controller';
-import ValidateResource from './middleware/validateMiddleware';
+import validateSchema from './middleware/validateMiddleware';
 import { loginUserHandler } from './controllers/login.controller';
 import { roleAuth } from './middleware/rabcMiddleware';
 import { Role } from './constants/enum';
@@ -19,15 +19,15 @@ import passport from 'passport';
 const routes = (app: Express) => {
 	app.get('/healthcheck', (req: Request, res: Response) => res.sendStatus(200));
 
-	app.post('/api/signup', ValidateResource(signupUserSchema), signupUserHandler);
+	app.post('/api/signup', validateSchema(signupUserSchema), signupUserHandler);
 
-	app.post('/api/login', ValidateResource(loginUserSchema), loginUserHandler);
+	app.post('/api/login', validateSchema(loginUserSchema), loginUserHandler);
 
 	app.post(
 		'/api/create',
 		passport.authenticate('jwt', { session: false }),
 		roleAuth([Role.Admin], 'create an users profile'),
-		ValidateResource(createUserSchema),
+		validateSchema(createUserSchema),
 		createUserHandler
 	);
 	app.patch(
@@ -64,7 +64,7 @@ const routes = (app: Express) => {
 		'/api/update/:userId',
 		passport.authenticate('jwt', { session: false }),
 		roleAuth([Role.Admin, Role.Employee, Role.Supervisor], 'update user profile'),
-		ValidateResource(updateUserSchema),
+		validateSchema(updateUserSchema),
 		async (req, res) => {
 			const id = req.params.userId;
 
