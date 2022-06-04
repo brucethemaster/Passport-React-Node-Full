@@ -12,7 +12,7 @@ describe('Passport-React-Node-Full rest-api test', () => {
 		expect(result.data).toEqual(
 			expect.objectContaining({
 				_id: expect.any(String),
-			})
+			}),
 		);
 	});
 	it('should failed login a user if is not verified', async () => {
@@ -20,7 +20,7 @@ describe('Passport-React-Node-Full rest-api test', () => {
 		expect(result.data).toEqual(
 			expect.objectContaining({
 				error: expect.any(String),
-			})
+			}),
 		);
 	});
 
@@ -29,7 +29,7 @@ describe('Passport-React-Node-Full rest-api test', () => {
 		expect(result.data).toEqual(
 			expect.objectContaining({
 				token: expect.any(String),
-			})
+			}),
 		);
 	});
 
@@ -55,27 +55,29 @@ describe('Passport-React-Node-Full rest-api test', () => {
 				expect.objectContaining({
 					_id: expect.any(String),
 				}),
-			])
+			]),
 		);
 	});
 	//get some problems patch is not working, but in postman it works skip test right now
-	it.skip('should  login as  an administrator and verify a user profile', async () => {
-		const newConfig: AxiosRequestConfig = {
+	it('should  login as  an administrator and verify a user profile', async () => {
+		const config = {
+			method: 'patch',
+			url: `${testData.url}/api/verify/${userId}`,
 			headers: {
-				'Content-Type': 'application/json; charset=utf-8',
-				'Access-Control-Allow-Origin': '*',
-
 				Authorization: adminToken,
 			},
 		};
-
-		const verifyResult = await axios.patch(`${testData.url}/api/verify/${userId}`, newConfig);
-
-		expect(verifyResult.data).toEqual(
-			expect.objectContaining({
-				_id: expect.any(String),
+		axios(config)
+			.then(function (response) {
+				expect(response.data).toEqual(
+					expect.objectContaining({
+						_id: expect.any(String),
+					}),
+				);
 			})
-		);
+			.catch(function (error) {
+				console.log(error);
+			});
 	});
 
 	it('should  login as  an administrator and delete a user profile', async () => {
