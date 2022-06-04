@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
-
+import logger from '../../src/utils/logger';
 import testData from './testData/local.json';
 
 let adminToken: string;
@@ -75,7 +75,7 @@ describe('Passport-React-Node-Full rest-api test', () => {
 				);
 			})
 			.catch(function (error) {
-				console.log(error);
+				logger.error(error);
 			});
 	});
 
