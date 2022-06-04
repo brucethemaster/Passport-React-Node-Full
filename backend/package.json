@@ -4,11 +4,11 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"start": "tsc && node -r dotenv/config build/src/app.js dotenv_config_silent=true",
+		"start": "tsc && node -r dotenv/config build/src/server.js dotenv_config_silent=true",
 		"dev": "./node_modules/nodemon/bin/nodemon.js -e ts --exec \"npm run start\"",
 		"lint": "eslint --fix src/**/*.ts",
 		"test:unit": "cross-env jest --detectOpenHandles",
-		"test:e2e": "cross-env jest --config='jest.e2e.config.ts'"
+		"test:e2e": "cross-env jest --coverage --config='jest.e2e.config.ts'"
 	},
 	"keywords": [],
 	"author": "",
