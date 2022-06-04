@@ -7,6 +7,7 @@ import {
 	getAllUsers,
 	verifyUserById,
 	getAllUsersBySupervisorId,
+	userInputPreHook,
 } from '../../../src/service/user.service';
 
 const userPayload = {
@@ -175,5 +176,16 @@ describe('user service', () => {
 		const user = await createUser(userCreatePayload3);
 		expect(user.verified).toEqual(false);
 		await expect(getAllUsersBySupervisorId('629642c7eba5741e095f1971')).rejects.toThrow();
+	});
+
+	it('should execute next middleware when password is modified', async () => {
+		const mockNext = jest.fn();
+		const mockContext = {
+			isModified: jest.fn(),
+		};
+		mockContext.isModified.mockReturnValueOnce(false);
+		await userInputPreHook.call(mockContext, mockNext);
+		expect(mockContext.isModified).toBeCalledWith('password');
+		expect(mockNext).toBeCalledTimes(1);
 	});
 });

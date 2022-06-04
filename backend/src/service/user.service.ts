@@ -6,7 +6,7 @@ import {
 	IUserCreateInput,
 	IUserCreateDocument,
 } from '../interfaces/user.interface';
-import UserModel from '../models/user.model';
+import UserModel, { userInputPreHook } from '../models/user.model';
 
 export async function signupUser(input: IUserSignupInput) {
 	try {
@@ -113,3 +113,4 @@ export async function deleteUserById(id: IUserSignupDocument['id']) {
 		throw new Error(e);
 	}
 }
+export { userInputPreHook };

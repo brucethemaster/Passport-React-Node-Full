@@ -21,7 +21,6 @@ const generateJWT = async (req: Request) => {
 
 		const verifiedUser = await UserModel.findOne({ _id: user._id, verified: true });
 
-		console.log(verifiedUser);
 		if (!verifiedUser) {
 			return { error: 'User is not verified, please contact the administrator' };
 		}

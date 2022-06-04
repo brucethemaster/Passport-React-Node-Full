@@ -40,26 +40,24 @@ const userSchema = new Schema(
 		},
 		verified: { type: Boolean, default: false },
 	},
-	{ timestamps: true, versionKey: 'version' },
+	{ timestamps: true, versionKey: 'version' }
 );
+export async function userInputPreHook(this: any, next) {
+	const user = this as IUserCreateDocument;
 
-userSchema.pre<IUserCreateInput | IUserSignupInput | updateUserInput>(
-	'save',
-	async function (next) {
-		const user = this as IUserCreateDocument;
-
-		if (!user.isModified('password')) {
-			return next();
-		}
-
-		const salt = await bcrypt.genSalt(saltFactor);
-		const hash = await bcrypt.hash(user.password, salt);
-
-		user.password = hash;
-
+	if (!user.isModified('password')) {
 		return next();
-	},
-);
+	}
+
+	const salt = await bcrypt.genSalt(saltFactor);
+	const hash = await bcrypt.hash(user.password, salt);
+
+	user.password = hash;
+
+	return next();
+}
+
+userSchema.pre<IUserCreateInput | IUserSignupInput | updateUserInput>('save', userInputPreHook);
 
 userSchema.pre<IUserUpdateInput | any>('findOneAndUpdate', async function (next) {
 	if (!this._update.password) {
@@ -77,7 +75,7 @@ userSchema.pre<IUserUpdateInput | any>('findOneAndUpdate', async function (next)
 
 const UserModel = mongoose.model<IUserSignupDocument | IUserUpdateDocument | IUserCreateDocument>(
 	'users',
-	userSchema,
+	userSchema
 );
 
 export default UserModel;
