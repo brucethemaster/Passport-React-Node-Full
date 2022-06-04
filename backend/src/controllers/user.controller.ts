@@ -9,7 +9,7 @@ import {
 	getAllUsers,
 	createUser,
 	verifyUserById,
-	getAllUsersBySupervisorId
+	getAllUsersBySupervisorId,
 } from '../service/user.service';
 import logger from '../utils/logger';
 import _ from 'lodash';
@@ -17,7 +17,7 @@ import { IUserSignupDocument } from 'src/interfaces/user.interface';
 
 export async function signupUserHandler(
 	req: Request<Record<string, unknown>, signupUserInput['body']>,
-	res: Response
+	res: Response,
 ) {
 	try {
 		const user = await signupUser(req.body);
@@ -29,7 +29,7 @@ export async function signupUserHandler(
 }
 export async function createUserHandler(
 	req: Request<Record<string, unknown>, Record<string, unknown>, createUserInput['body']>,
-	res: Response
+	res: Response,
 ) {
 	try {
 		const user = await createUser(req.body);
@@ -42,7 +42,7 @@ export async function createUserHandler(
 export async function verifyUserHandler(
 	id: IUserSignupDocument['id'],
 	req: Request,
-	res: Response
+	res: Response,
 ) {
 	try {
 		const user = await verifyUserById(id);
@@ -59,7 +59,7 @@ export async function verifyUserHandler(
 export async function getUserProfileByIdHandler(
 	id: IUserSignupDocument['id'],
 	req: Request,
-	res: Response
+	res: Response,
 ) {
 	try {
 		const user = await getUserById(id);
@@ -103,7 +103,7 @@ export async function getAllUserProfilesHandler(req: Request, res: Response) {
 export async function updateUserHandler(
 	id: IUserSignupDocument['id'],
 	req: Request<Record<string, unknown>, updateUserInput['body']>,
-	res: Response
+	res: Response,
 ) {
 	try {
 		const user = await updateUserById(req.body, id);
@@ -117,7 +117,7 @@ export async function updateUserHandler(
 export async function deleteUserHandler(
 	id: IUserSignupDocument['id'],
 	req: Request,
-	res: Response
+	res: Response,
 ) {
 	try {
 		const data = await deleteUserById(id);

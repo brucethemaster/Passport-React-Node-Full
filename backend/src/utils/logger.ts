@@ -4,13 +4,13 @@ import dayjs from 'dayjs';
 
 const log = logger({
 	transport: {
-		target: 'pino-pretty'
+		target: 'pino-pretty',
 	},
 
 	base: {
-		pid: false
+		pid: false,
 	},
-	timestamp: () => `,"time":"${dayjs().format()}"`
+	timestamp: () => `,"time":"${dayjs().format()}"`,
 });
 
 export default log;

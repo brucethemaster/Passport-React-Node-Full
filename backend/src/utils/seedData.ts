@@ -10,15 +10,15 @@ export default async function (mongoose: mongoose.Mongoose) {
 		.next(
 			async (
 				err: AnyError | undefined,
-				collinfo: CollectionInfo | Pick<CollectionInfo, 'type' | 'name'> | null | undefined
+				collinfo: CollectionInfo | Pick<CollectionInfo, 'type' | 'name'> | null | undefined,
 			) => {
 				if (!collinfo) {
 					logger.info(
-						`Collection ${UserModel.collection.collectionName} not exist. Starting seed data`
+						`Collection ${UserModel.collection.collectionName} not exist. Starting seed data`,
 					);
 					//const userData = await seedUserData(seedUser);
 					const userData = JSON.parse(
-						fs.readFileSync(__dirname + '/../../../_seedData//users.json', 'utf-8')
+						fs.readFileSync(__dirname + '/../../../_seedData//users.json', 'utf-8'),
 					);
 					await UserModel.insertMany(userData)
 						.then(() => {
@@ -29,6 +29,6 @@ export default async function (mongoose: mongoose.Mongoose) {
 							throw err;
 						});
 				}
-			}
+			},
 		);
 }

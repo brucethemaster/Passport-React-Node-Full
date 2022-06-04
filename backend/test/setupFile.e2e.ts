@@ -7,7 +7,6 @@ beforeAll(async () => {
 	await client.connect();
 	const db = client.db('pi-backend-db');
 	const users = db.collection('users');
-	const result = await users.deleteMany({ email: 'test21@test.com' });
-	console.log(result);
+	await users.deleteMany({ email: 'test21@test.com' });
 	await client.close();
 });

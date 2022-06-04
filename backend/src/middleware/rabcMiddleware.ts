@@ -14,22 +14,18 @@ export const roleAuth =
 		if (!req.user) {
 			return res.status(403).json({ error: 'not Authorized' });
 		}
-		// eslint-disable-next-line
-		/* @ts-ignore:*/
 
 		if (roles.includes(req?.user?.role)) {
-			// @ts-ignore:
 			switch (req?.user?.role) {
 				case 'Admin':
 					return next();
 				case 'Employee':
-					// @ts-ignore
 					if (req.user._id.toString() === req.params.userId.toString()) {
 						if (req.body) {
 							req.body = removeAttribute(req.body, [
 								'role',
 								'assignedSupervisorId',
-								'assignedEmployeeId'
+								'assignedEmployeeId',
 							]);
 						}
 						return next();
@@ -38,16 +34,14 @@ export const roleAuth =
 				case 'Supervisor':
 					if (req.params.userId) {
 						if (
-							// @ts-ignore
 							req?.user?.assignedEmployeeId?.includes(req.params.userId.toString()) ||
-							// @ts-ignore
 							req.user._id.toString() === req.params.userId.toString()
 						) {
 							if (req.body) {
 								req.body = removeAttribute(req.body, [
 									'role',
 									'assignedEmployeeId',
-									'assignedSupervisorId'
+									'assignedSupervisorId',
 								]);
 							}
 							return next();

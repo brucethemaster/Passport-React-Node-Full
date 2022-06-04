@@ -4,7 +4,7 @@ import {
 	IUserSignupInput,
 	IUserUpdateInput,
 	IUserCreateInput,
-	IUserCreateDocument
+	IUserCreateDocument,
 } from '../interfaces/user.interface';
 import UserModel from '../models/user.model';
 

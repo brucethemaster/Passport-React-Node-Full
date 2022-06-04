@@ -46,7 +46,7 @@ export interface IUserSignupDocument extends IUserSignupInput, mongoose.Document
 		{
 			type: Types.ObjectId;
 			ref: 'userSchema';
-		}
+		},
 	];
 	comparePassword(candidatePassword: string): Promise<boolean>;
 }

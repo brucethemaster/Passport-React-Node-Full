@@ -3,13 +3,13 @@ import { object, string, TypeOf, array, boolean } from 'zod';
 export const signupUserSchema = object({
 	body: object({
 		first_name: string({
-			required_error: 'Name is required'
+			required_error: 'Name is required',
 		}),
 		last_name: string({
-			required_error: 'Name is required'
+			required_error: 'Name is required',
 		}),
 		role: string({
-			required_error: 'Name is required'
+			required_error: 'Name is required',
 		}),
 		password: string()
 			.regex(new RegExp('.*[A-Z].*'), 'Must have one uppercase character')
@@ -17,31 +17,31 @@ export const signupUserSchema = object({
 			.regex(new RegExp('.*\\d.*'), 'Must have one number')
 			.regex(
 				new RegExp('.*[`~<>?,./!@#$%^&*()\\-_+="\'|{}\\[\\];:\\\\].*'),
-				'Must have one special character'
+				'Must have one special character',
 			)
 			.min(8, 'Must be at least 8 characters in length'),
 		passwordConfirmation: string({
-			required_error: 'passwordConfirmation is required'
+			required_error: 'passwordConfirmation is required',
 		}),
 		email: string({
-			required_error: 'Email is required'
-		}).email('Not a valid email')
+			required_error: 'Email is required',
+		}).email('Not a valid email'),
 	}).refine((data) => data.password === data.passwordConfirmation, {
 		message: 'Passwords do not match',
-		path: ['passwordConfirmation']
-	})
+		path: ['passwordConfirmation'],
+	}),
 });
 
 export const createUserSchema = object({
 	body: object({
 		first_name: string({
-			required_error: 'Name is required'
+			required_error: 'Name is required',
 		}),
 		last_name: string({
-			required_error: 'Name is required'
+			required_error: 'Name is required',
 		}),
 		role: string({
-			required_error: 'Name is required'
+			required_error: 'Name is required',
 		}),
 		password: string()
 			.regex(new RegExp('.*[A-Z].*'), 'Must have one uppercase character')
@@ -49,38 +49,38 @@ export const createUserSchema = object({
 			.regex(new RegExp('.*\\d.*'), 'Must have one number')
 			.regex(
 				new RegExp('.*[`~<>?,./!@#$%^&*()\\-_+="\'|{}\\[\\];:\\\\].*'),
-				'Must have one special character'
+				'Must have one special character',
 			)
 			.min(8, 'Must be at least 8 characters in length'),
 		passwordConfirmation: string({
-			required_error: 'passwordConfirmation is required'
+			required_error: 'passwordConfirmation is required',
 		}),
 		email: string({
-			required_error: 'Email is required'
+			required_error: 'Email is required',
 		}).email('Not a valid email'),
 		assignedEmployeeId: array(
-			string({ required_error: 'Assigned employee id is required' })
+			string({ required_error: 'Assigned employee id is required' }),
 		).optional(),
 		assignedSupervisorId: string({
-			required_error: 'Assigned supervisor id is required'
+			required_error: 'Assigned supervisor id is required',
 		}).optional(),
-		verified: boolean({ required_error: 'verify user  is required' })
+		verified: boolean({ required_error: 'verify user  is required' }),
 	}).refine((data) => data.password === data.passwordConfirmation, {
 		message: 'Passwords do not match',
-		path: ['passwordConfirmation']
-	})
+		path: ['passwordConfirmation'],
+	}),
 });
 
 export const updateUserSchema = object({
 	body: object({
 		first_name: string({
-			required_error: 'Name is required'
+			required_error: 'Name is required',
 		}).optional(),
 		last_name: string({
-			required_error: 'Name is required'
+			required_error: 'Name is required',
 		}).optional(),
 		role: string({
-			required_error: 'Name is required'
+			required_error: 'Name is required',
 		}).optional(),
 		password: string()
 			.regex(new RegExp('.*[A-Z].*'), 'Must have one uppercase character')
@@ -88,35 +88,35 @@ export const updateUserSchema = object({
 			.regex(new RegExp('.*\\d.*'), 'Must have one number')
 			.regex(
 				new RegExp('.*[`~<>?,./!@#$%^&*()\\-_+="\'|{}\\[\\];:\\\\].*'),
-				'Must have one special character'
+				'Must have one special character',
 			)
 			.min(8, 'Must be at least 8 characters in length')
 			.optional(),
 		passwordConfirmation: string({
-			required_error: 'passwordConfirmation is required'
+			required_error: 'passwordConfirmation is required',
 		}).optional(),
 		email: string({
-			required_error: 'Email is required'
+			required_error: 'Email is required',
 		})
 			.email('Not a valid email')
 			.optional(),
 		assignedEmployeeId: array(
-			string({ required_error: 'Assigned employee id is required' })
+			string({ required_error: 'Assigned employee id is required' }),
 		).optional(),
 		assignedSupervisorId: string({
-			required_error: 'Assigned supervisor id is required'
-		}).optional()
+			required_error: 'Assigned supervisor id is required',
+		}).optional(),
 	})
 		.strict()
 
 		.refine((data) => !!data.password !== !data.passwordConfirmation, {
 			message: 'Passwords do not match',
-			path: ['passwordConfirmation']
+			path: ['passwordConfirmation'],
 		})
 		.refine((data) => data.password === data.passwordConfirmation, {
 			message: 'Passwords do not match',
-			path: ['passwordConfirmation']
-		})
+			path: ['passwordConfirmation'],
+		}),
 });
 export type updateUserInput = Omit<
 	TypeOf<typeof updateUserSchema>,

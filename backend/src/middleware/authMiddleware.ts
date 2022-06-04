@@ -40,14 +40,14 @@ const generateJWT = async (req: Request) => {
 			id: _id,
 			iat: Date.now(),
 			role: role,
-			assignedSupervisorId: user.assignedSupervisorId
+			assignedSupervisorId: user.assignedSupervisorId,
 		};
 
 		const signedToken = jwt.sign(payload, JWT_SECRET, { expiresIn: expiresIn });
 
 		return {
 			token: 'Bearer ' + signedToken,
-			expires: expiresIn
+			expires: expiresIn,
 		};
 	}
 };

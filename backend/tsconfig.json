@@ -1,6 +1,7 @@
 {
 	"include": ["src/**/*", "test/**/*"],
 	"exclude": ["./node_modules"],
+	"files": ["./src/types/express/index.d.ts"],
 	"compilerOptions": {
 		"lib": ["es2018"],
 		"module": "commonjs",
@@ -12,7 +13,7 @@
 
 		"allowJs": true,
 		"baseUrl": "./" /* Specify the base directory to resolve non-relative module names. */,
-		"typeRoots": ["./src/types/index.d.ts", "./node_modules/@types"],
+		"typeRoots": ["./src/types", "./node_modules/@types"],
 		"types": ["express", "jest"],
 		"paths": {
 			"src/*": ["src/*"],
