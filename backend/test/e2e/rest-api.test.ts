@@ -47,7 +47,6 @@ describe('Passport-React-Node-Full rest-api test', () => {
 
 		const getUserResult = await axios.get(`${testData.url}/api/profiles`, newConfig);
 
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		userId = getUserResult.data[3]._id;
 
 		expect(getUserResult.data).toEqual(
@@ -58,7 +57,7 @@ describe('Passport-React-Node-Full rest-api test', () => {
 			]),
 		);
 	});
-	//get some problems patch is not working, but in postman it works skip test right now
+
 	it('should  login as  an administrator and verify a user profile', async () => {
 		const config = {
 			method: 'patch',
