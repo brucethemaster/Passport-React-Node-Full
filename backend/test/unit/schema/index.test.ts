@@ -6,7 +6,6 @@ import {
 } from '../../..//src/schema/index';
 import validateSchema from '../../../src/middleware/validateMiddleware';
 import { NextFunction, Request, Response } from 'express';
-import { any, AnyZodObject } from 'zod';
 import mocks from 'node-mocks-http';
 describe('schema validation', () => {
 	const loginGoodPayload = { email: 'test1@test.com', password: '123321' };
@@ -17,11 +16,14 @@ describe('schema validation', () => {
 	};
 	let req: Request;
 	let res: Response;
-	let next;
+	let next: NextFunction;
 	beforeEach(async () => {
 		req = mocks.createRequest();
 		res = mocks.createResponse();
 		next = mockNext();
+	});
+	afterEach(() => {
+		jest.clearAllMocks();
 	});
 
 	it('should pass the login if payload is valid', () => {
