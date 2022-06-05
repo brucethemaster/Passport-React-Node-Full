@@ -38,5 +38,11 @@ jobs:
 
       - name: Run tests
         run: npm run test:unit
+        
+      - name: start dev
+        run: npm run dev
+        
+      - name: integration test
+        run: npm run test:e2e
         env:
           CI: true
