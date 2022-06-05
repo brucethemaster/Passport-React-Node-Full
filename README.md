@@ -1,4 +1,4 @@
-[![Node.js CI](https://github.com/brucethemaster/Passport-React-Node-Full/actions/workflows/test.yml/badge.svg)](https://github.com/brucethemaster/Passport-React-Node-Full/actions/workflows/test.yml)
+[![Node.js CI](https://github.com/brucethemaster/Passport-React-Node-Full/actions/workflows/test.yml/badge.svg?ranch=master&kill_cache=1)](https://github.com/brucethemaster/Passport-React-Node-Full/actions/workflows/test.yml)
 
 # Passport-React-Node-Full
 its a full stack application that learning progress to get a full picture of  untizing  typescript react passport-jwt, role based access control
