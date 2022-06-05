@@ -17,3 +17,4 @@ integration test
 ### npm run lint
 eslint the project
 
+[![Node.js CI](https://github.com/brucethemaster/Passport-React-Node-Full/actions/workflows/test.yml/badge.svg)](https://github.com/brucethemaster/Passport-React-Node-Full/actions/workflows/test.yml)
