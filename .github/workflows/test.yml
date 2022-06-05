@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: backend/
+        working-directory: backend
     strategy:
       matrix:
         node-version: [14.x]
@@ -19,9 +19,8 @@ jobs:
     steps:
       - name: Start MongoDB
         uses: supercharge/mongodb-github-action@1.7.0
-        with:
-          mongodb-version: ${{ matrix.mongodb-version }}
-      - run: npm ci
+        working-directory: backend
+      - run: npm install
 
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
