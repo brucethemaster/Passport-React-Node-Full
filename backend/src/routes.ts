@@ -17,6 +17,7 @@ import { Role } from './constants/enum';
 import passport from 'passport';
 
 const routes = (app: Express) => {
+	app.get('', (req: Request, res: Response) => res.sendStatus(200));
 	app.get('/healthcheck', (req: Request, res: Response) => res.sendStatus(200));
 
 	app.post('/api/signup', validateSchema(signupUserSchema), signupUserHandler);
@@ -28,7 +29,7 @@ const routes = (app: Express) => {
 		passport.authenticate('jwt', { session: false }),
 		roleAuth([Role.Admin], 'create an users profile'),
 		validateSchema(createUserSchema),
-		createUserHandler
+		createUserHandler,
 	);
 	app.patch(
 		'/api/verify/:userId',
@@ -39,7 +40,7 @@ const routes = (app: Express) => {
 			const id = req.params.userId;
 
 			await verifyUserHandler(id, req, res);
-		}
+		},
 	);
 
 	app.get(
@@ -47,7 +48,7 @@ const routes = (app: Express) => {
 		passport.authenticate('jwt', { session: false }),
 		roleAuth([Role.Admin, Role.Supervisor], 'view  all users profile'),
 
-		getAllUserProfilesHandler
+		getAllUserProfilesHandler,
 	);
 	app.get(
 		'/api/profile/:userId',
@@ -57,7 +58,7 @@ const routes = (app: Express) => {
 			const id = req.params.userId;
 
 			await getUserProfileByIdHandler(id, req, res);
-		}
+		},
 	);
 
 	app.patch(
@@ -69,7 +70,7 @@ const routes = (app: Express) => {
 			const id = req.params.userId;
 
 			await updateUserHandler(id, req, res);
-		}
+		},
 	);
 
 	app.delete(
@@ -81,7 +82,7 @@ const routes = (app: Express) => {
 			const id = req.params.userId;
 
 			await deleteUserHandler(id, req, res);
-		}
+		},
 	);
 };
 

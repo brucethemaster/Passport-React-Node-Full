@@ -40,6 +40,6 @@ jobs:
         run: npm run test:unit
 
       - name: Start server and Integration Test
-        run: npm run delayed-test
+        run: npm run start-test
         env:
           CI: true
