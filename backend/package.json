@@ -10,7 +10,7 @@
 		"test:unit": "cross-env jest --detectOpenHandles",
 		"test:e2e": "cross-env jest --coverage --config='jest.e2e.config.ts'",
 		"build": "tsc",
-		"start-server": "npm run start"
+		"delayed-test": "( sleep 25 && npm run test:e2e) & npm run start"
 	},
 	"keywords": [],
 	"author": "",
