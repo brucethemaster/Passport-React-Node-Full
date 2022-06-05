@@ -40,10 +40,9 @@ jobs:
         run: npm run test:unit
 
       - name: Start server and Integration Test
-        run: npm ci
+        run: |
+             npm run start& 
+             npm run test:e2e     
         env:
           CI: true
-      - name: Integration test
-        run: npm run test:e2e
-        env:
-          CI: true
+    
