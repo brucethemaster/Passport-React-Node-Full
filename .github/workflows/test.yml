@@ -38,13 +38,9 @@ jobs:
 
       - name: Run tests
         run: npm run test:unit
-        
+
       - name: Start server and Integration Test
         run: |
-           npm run start& npx wait-on http://localhost:3000
-        env:
-          CI: true
-      - name: Integration test
-        run: npm run test:e2e
+          npm run ci
         env:
           CI: true
