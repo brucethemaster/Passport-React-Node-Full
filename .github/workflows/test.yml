@@ -20,7 +20,7 @@ jobs:
         uses: supercharge/mongodb-github-action@1.7.0
         with:
           mongodb-version: ${{ matrix.mongodb-version }}
-        run: npm install
+      - run: npm ci
 
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
