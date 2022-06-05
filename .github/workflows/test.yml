@@ -1,4 +1,4 @@
-name: Node.js CI
+name: TEST
 
 on:
   push:
@@ -39,10 +39,10 @@ jobs:
       - name: Run tests
         run: npm run test:unit
         
-      - name: start dev
-        run: npm run dev
+      - name: Start server
+        run: npm run start
         
-      - name: integration test
+      - name: Integration test
         run: npm run test:e2e
         env:
           CI: true
