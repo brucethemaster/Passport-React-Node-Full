@@ -21,6 +21,7 @@ jobs:
       - name: Start MongoDB
         with:
          mongodb-version: ${{ matrix.mongodb-version }} 
+      - run: npm install
        
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
