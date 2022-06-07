@@ -11,7 +11,7 @@
 		"test:e2e": "cross-env jest --coverage --config='jest.e2e.config.ts'",
 		"build": "tsc",
 		"delayed-test": "( sleep 25 && npm run test:e2e) & npm run start",
-		"start-test": "start-server-and-test start http://localhost:3000 test:e2e"
+		"start-test": "start-server-and-test start http://localhost:3000/healthcheck test:e2e"
 	},
 	"keywords": [],
 	"author": "",
