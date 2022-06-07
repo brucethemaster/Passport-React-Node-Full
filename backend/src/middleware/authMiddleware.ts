@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 import UserModel from '../models/user.model';
 
 const generateJWT = async (req: Request) => {
-	const JWT_SECRET = process.env.JWT_SECRET || 'supersecret';
+	const JWT_SECRET_ACCESS_TOKEN = process.env.JWT_SECRET_ACCESS_TOKEN || 'supersecret';
 	if (req.headers) {
 		const token = req.headers.authorization;
 
@@ -42,7 +42,7 @@ const generateJWT = async (req: Request) => {
 			assignedSupervisorId: user.assignedSupervisorId,
 		};
 
-		const signedToken = jwt.sign(payload, JWT_SECRET, { expiresIn: expiresIn });
+		const signedToken = jwt.sign(payload, JWT_SECRET_ACCESS_TOKEN, { expiresIn: expiresIn });
 
 		return {
 			token: 'Bearer ' + signedToken,

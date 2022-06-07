@@ -5,7 +5,7 @@ import { IUserSignupInput } from '../interfaces/user.interface';
 import UserModel from '../models/user.model';
 const options = {
 	jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-	secretOrKey: process.env.JWT_SECRET || 'supersecret',
+	secretOrKey: process.env.JWT_SECRET_ACCESS_TOKEN || 'supersecret',
 };
 export default (passport: PassportStatic) => {
 	passport.use(
