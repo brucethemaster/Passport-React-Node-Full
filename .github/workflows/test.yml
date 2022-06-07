@@ -1,4 +1,4 @@
-name: TEST
+name: UNIT TEST AND
 
 on:
   push:
@@ -16,6 +16,7 @@ jobs:
       matrix:
         node-version: [14.x]
         mongodb-version: ['5.0']
+        redis-version: [6]
 
     steps:
       - name: Git checkout
@@ -33,10 +34,15 @@ jobs:
           mongodb-replica-set: test-rs
           mongodb-port: 27017
 
+      - name: Start Redis
+        uses: supercharge/redis-github-action@1.4.0
+        with:
+        redis-version: ${{ matrix.redis-version }}
+
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
+      - name: Run Unit tests
         run: npm run test:unit
 
       - name: Start server and Integration Test
